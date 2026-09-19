@@ -2190,7 +2190,7 @@
       </div>
 
       <div class="portrait">
-        <img src="Untitled design.svg" alt="Sri Naga Durga Kamireddy">
+        <img src="hero.svg" alt="Sri Naga Durga Kamireddy">
       </div>
 
       <div class="hero-side left">
@@ -2349,7 +2349,7 @@
 
     <div class="about-grid">
       <div class="about-photo">
-        <img src="durga kamireddy.svg" alt="Sri Naga Durga Kamireddy">
+        <img src="id.svg" alt="Sri Naga Durga Kamireddy">
       </div>
 
       <div class="about-text">
@@ -2920,6 +2920,24 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && drawer.classList.contains('open')) close();
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+      document.addEventListener('dragstart', function (e) {
+        if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+      });
+      document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.key === 'F12') { e.preventDefault(); return; }
+        if (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) { e.preventDefault(); return; }
+        if (e.ctrlKey && k === 'u') { e.preventDefault(); return; }
+      });
+      try {
+        console.log('%c© Sri Naga Durga Kamireddy — this portfolio is personal work, please ask before reusing content.',
+          'font-size:12px;color:#5b9e10;');
+      } catch (e) { /* ignore */ }
     })();
   </script>
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
