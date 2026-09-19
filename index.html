@@ -1,1 +1,2929 @@
-<h1>Hiii Durga..</h1>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Naga Durga Kamireddy — Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Aeonik is commercial: drop files as fonts/aeonik-regular.woff2 etc. then uncomment below */
+    /* @font-face{font-family:'Aeonik';src:url('fonts/aeonik-regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Aeonik';src:url('fonts/aeonik-medium.woff2') format('woff2');font-weight:500;font-display:swap;}
+    @font-face{font-family:'Aeonik';src:url('fonts/aeonik-bold.woff2') format('woff2');font-weight:700;font-display:swap;} */
+    :root {
+      color-scheme: light;
+      --ink: #101410;
+      --ink-soft: #5c6259;
+      --paper: #ffffff;
+      --line: #e7e9e3;
+      --card: #f5f6f2;
+      --lime-1: #eaffbf;
+      --lime-2: #9be015;
+      --lime-3: #5b9e10;
+      --dark: #0c0f0a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Aeonik', 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .serif {
+      font-family: 'Instrument Serif', serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Instrument Serif', 'Aeonik', 'Inter', sans-serif;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      position: relative;
+    }
+
+    /* ---------- NAV ---------- */
+    header.nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 1180px;
+      margin: 12px auto 0;
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      background: rgba(255, 255, 255, .55);
+      -webkit-backdrop-filter: blur(18px) saturate(1.5);
+      backdrop-filter: blur(18px) saturate(1.5);
+      border: 1px solid rgba(255, 255, 255, .65);
+      border-radius: 20px;
+      box-shadow: 0 12px 32px -18px rgba(0, 0, 0, .25);
+      transform: translateY(-140%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .38s ease, opacity .38s ease, box-shadow .38s ease;
+    }
+
+    header.nav.reveal {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+      box-shadow: 0 18px 44px -18px rgba(0, 0, 0, .35);
+    }
+
+    .logo {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      letter-spacing: .02em;
+    }
+
+    .nav-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .5);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-btn span {
+      display: block;
+      width: 14px;
+      height: 1.4px;
+      background: var(--ink);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-btn[aria-expanded="true"] span:first-child {
+      transform: translateY(2.2px) rotate(45deg);
+    }
+
+    .nav-btn[aria-expanded="true"] span:last-child {
+      transform: translateY(-2.2px) rotate(-45deg);
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 20px;
+      z-index: 50;
+      background: rgba(255, 255, 255, .75);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid rgba(255, 255, 255, .65);
+      border-radius: 16px;
+      padding: 8px;
+      min-width: 200px;
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .25);
+      display: none;
+    }
+
+    .nav-menu.open {
+      display: block;
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 10px;
+      color: var(--ink-soft);
+    }
+
+    .nav-menu a:hover {
+      background: var(--card);
+      color: var(--ink);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      text-align: center;
+      padding: 12px 32px 0;
+      background:
+        linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0) 45%, #FFFFFF 78%),
+        radial-gradient(ellipse 95% 52% at 50% 36%, #B8FF35 0%, #CDFF5A 16%, #D8FF85 34%, #E4FFA6 50%, #EAFDBD 62%, #F4FFDA 76%, #F8FFF0 88%, #FFFFFF 100%);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 16px 7px 12px;
+      font-family: 'Aeonik', 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: .01em;
+      color: #000;
+      margin-bottom: 14px;
+      background: #fff;
+      box-shadow: 0 8px 20px -12px rgba(0, 0, 0, .35);
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    .badge .signal {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .badge .signal::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(34, 197, 94, .5);
+      animation: signalPing 1.8s ease-out infinite;
+    }
+
+    @keyframes signalPing {
+      0% { transform: scale(.5); opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+
+    .badge .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff, var(--lime-2));
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      color: var(--ink-soft);
+      letter-spacing: .04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    h1.hero-title {
+      font-size: 64px;
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      animation: fadeUp .8s ease both;
+    }
+
+    h1.hero-title .serif-line {
+      display: block;
+      width: fit-content;
+      margin: 12px auto 0;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      line-height: 1.3;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px 22px;
+      color: var(--ink);
+      max-width: 90%;
+    }
+
+    .hero-portrait-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 32px;
+      margin-top: 14px;
+    }
+
+    .hero-badge-col {
+      width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      animation: fadeUp .8s .15s ease both;
+    }
+
+    .hero-badge-col .badge {
+      margin-bottom: 0;
+    }
+
+    .hero-side {
+      width: 300px;
+      text-align: left;
+      font-size: 17px;
+      color: #000;
+      line-height: 1.5;
+      padding-bottom: 0;
+      animation: fadeUp .8s .35s ease both;
+    }
+
+    .hero-side.left .badge {
+      margin-bottom: 14px;
+    }
+
+    .hero-side.right {
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .hero-side.right b {
+      color: var(--ink);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .portrait {
+      width: 360px;
+      height: 450px;
+      border-radius: 0;
+      background: none;
+      position: relative;
+      overflow: visible;
+      box-shadow: none;
+      transform: translateY(-62px);
+      animation: heroFade 1s .25s ease both;
+    }
+
+    .portrait::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 32%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+      pointer-events: none;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border-radius: 0;
+      animation: heroImgFloat 7s ease-in-out 1.2s infinite;
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heroImgFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin-top: -10px;
+      padding-bottom: 24px;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .5s ease both;
+    }
+
+    .quicklinks {
+      display: flex;
+      gap: 10px;
+    }
+
+    .quicklinks a {
+      font-size: 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 16px;
+      color: var(--ink-soft);
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .quicklinks a:hover {
+      color: var(--ink);
+      border-color: var(--ink-soft);
+    }
+
+    #leetcode-link b {
+      color: #C9A227;
+      font-weight: 700;
+    }
+
+    .btn {
+      background: var(--dark);
+      color: var(--paper);
+      border: none;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: .9;
+    }
+
+    .btn .arrow {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--lime-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--dark);
+    }
+
+    /* ---------- MARQUEE ---------- */
+    .marquee-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      padding: 18px 0;
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+      animation: scroll 22s linear infinite;
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-group {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      padding-right: 56px;
+    }
+
+    .marquee-group span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    .marquee-group span img {
+      height: 28px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ---------- SHOWCASE ---------- */
+    .showcase {
+      padding: 60px 32px 90px;
+      text-align: center;
+    }
+
+    .showcase .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .showcase h2 {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 50px;
+    }
+
+    .showcase h2 .accent {
+      color: var(--lime-3);
+    }
+
+    .showcase-panel {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-radius: 36px;
+      padding: 14px;
+      background: transparent;
+      border: 2px dotted var(--line);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 10px;
+    }
+
+    .tile {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #0e1a08;
+      position: relative;
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s ease, transform .7s ease, box-shadow .25s ease;
+    }
+
+    .showcase.in .tile {
+      opacity: 1;
+      transform: none;
+    }
+
+    .showcase.in .tile:nth-child(1) { transition-delay: 0s; }
+    .showcase.in .tile:nth-child(2) { transition-delay: .08s; }
+    .showcase.in .tile:nth-child(3) { transition-delay: .16s; }
+    .showcase.in .tile:nth-child(4) { transition-delay: .24s; }
+    .showcase.in .tile:nth-child(5) { transition-delay: .32s; }
+    .showcase.in .tile:nth-child(6) { transition-delay: .4s; }
+
+    .tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 36px -20px rgba(0, 0, 0, .45);
+      transition-delay: 0s;
+    }
+
+    .tile.vertical {
+      grid-row: span 2;
+    }
+
+    .tile iframe {
+      width: 166.66%;
+      height: 166.66%;
+      border: 0;
+      display: block;
+      background: #fff;
+      transform: scale(0.6);
+      transform-origin: top left;
+    }
+
+    .tile.shrunk iframe {
+      width: 277.78%;
+      height: 277.78%;
+      transform: scale(0.36);
+    }
+
+    .tile-content {
+      position: absolute;
+      inset: 0;
+      padding: 18px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 12px;
+      line-height: 1.4;
+      background: none;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
+      pointer-events: none;
+    }
+
+    .tile-content a {
+      pointer-events: auto;
+      text-decoration: underline;
+    }
+
+    .tile-open {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, .92);
+      color: #111;
+      border: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      z-index: 3;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .tile-open:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .tile.placeholder .tile-open {
+      position: static;
+      margin-top: 10px;
+    }
+
+    .tile.placeholder {
+      flex-direction: column;
+    }
+
+    .tile.static-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #123524, #0e1a10);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .tile.shot > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .tile.shot .tile-open {
+      position: absolute;
+    }
+
+    .tile.shot:has(> img) b,
+    .tile.shot:has(> img) span {
+      display: none;
+    }
+
+    .tile.static-info b {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+    }
+
+    .tile.static-info span {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .75);
+      line-height: 1.5;
+    }
+
+    .tile.static-info .tile-open {
+      position: static;
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 15, 10, .5);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+      z-index: 200;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100dvh;
+      width: min(640px, 94vw);
+      background: var(--paper);
+      border-left: 1px solid var(--line);
+      box-shadow: -30px 0 60px -30px rgba(0, 0, 0, .35);
+      z-index: 201;
+      padding: 28px 28px 32px;
+      transform: translateX(105%);
+      transition: transform .38s cubic-bezier(.32, .72, 0, 1);
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .drawer.open {
+      transform: none;
+    }
+
+    .drawer-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 22px;
+    }
+
+    .drawer-close:hover {
+      background: var(--card);
+    }
+
+    .drawer-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--lime-3);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+
+    .drawer h3 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 14px;
+    }
+
+    .drawer p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 22px;
+    }
+
+    .drawer-preview {
+      height: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      margin-bottom: 22px;
+    }
+
+    .drawer-preview iframe {
+      width: 166.66%;
+      height: 166.66%;
+      border: 0;
+      display: block;
+      transform: scale(0.6);
+      transform-origin: top left;
+    }
+
+    .drawer-meta {
+      border-top: 1px solid var(--line);
+      margin-bottom: 26px;
+    }
+
+    .drawer-meta .meta-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .drawer-meta .meta-row > span {
+      width: 64px;
+      flex-shrink: 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-soft);
+    }
+
+    .drawer-meta .meta-row > b {
+      font-weight: 600;
+    }
+
+    .drawer-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .drawer-tech span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      white-space: nowrap;
+    }
+
+    .drawer .btn {
+      text-decoration: none;
+    }
+
+    .tile.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dotted var(--line);
+      background: transparent;
+      color: var(--ink-soft);
+      font-size: 13px;
+      min-height: 100px;
+    }
+
+    .tile.placeholder .tile-content {
+      background: none;
+      position: static;
+      color: var(--ink-soft);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ---------- INTRO + SCATTERED SKILLS ---------- */
+    .intro-scatter {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 110px 32px 170px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .intro .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      animation: fadeUp .8s ease both;
+    }
+
+    .intro h2 {
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 500;
+      letter-spacing: -.01em;
+      animation: fadeUp .8s .12s ease both;
+    }
+
+    .intro h2 .accent {
+      color: var(--lime-3);
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes pillFloat {
+
+      0%,
+      100% {
+        transform: rotate(var(--tilt, 0deg)) translateY(0);
+      }
+
+      50% {
+        transform: rotate(var(--tilt, 0deg)) translateY(-10px);
+      }
+    }
+
+    @keyframes pillPop {
+      from {
+        opacity: 0;
+        transform: rotate(var(--tilt, 0deg)) translateY(24px) scale(.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: rotate(var(--tilt, 0deg)) translateY(0) scale(1);
+      }
+    }
+
+    .pill-field {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+
+    .pill {
+      pointer-events: auto;
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 18px 10px 10px;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      width: fit-content;
+      box-shadow: 0 14px 30px -18px rgba(0, 0, 0, .35);
+      opacity: 0;
+      animation: pillPop .7s ease forwards, pillFloat 6s ease-in-out infinite;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .pill:hover {
+      box-shadow: 0 20px 40px -18px rgba(0, 0, 0, .4);
+      z-index: 5;
+    }
+
+    .pill .ic {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 10px -6px rgba(0, 0, 0, .3);
+      flex-shrink: 0;
+      overflow: hidden;
+      font-size: 15px;
+    }
+
+    .pill .ic img {
+      width: 17px;
+      height: 17px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .pill.placeholder {
+      display: none;
+    }
+
+    /* shattered diagonals leaning toward middle text */
+    .pill:nth-child(1) {
+      --tilt: -8deg;
+      top: 6%;
+      left: 2%;
+      animation-delay: .1s, 1s;
+    }
+
+    .pill:nth-child(2) {
+      --tilt: 7deg;
+      top: 10%;
+      right: 1%;
+      animation-delay: .2s, 1.6s;
+    }
+
+    .pill:nth-child(3) {
+      --tilt: 5deg;
+      top: 42%;
+      left: -2%;
+      animation-delay: .3s, 2.2s;
+    }
+
+    .pill:nth-child(4) {
+      --tilt: -6deg;
+      top: 44%;
+      right: -2%;
+      animation-delay: .4s, 1.3s;
+    }
+
+    .pill:nth-child(5) {
+      --tilt: -5deg;
+      bottom: 8%;
+      left: 8%;
+      animation-delay: .5s, 1.9s;
+    }
+
+    .pill:nth-child(6) {
+      --tilt: 6deg;
+      bottom: 6%;
+      right: 7%;
+      animation-delay: .6s, 2.5s;
+    }
+
+    .pill:nth-child(7) {
+      --tilt: -3deg;
+      bottom: 0%;
+      left: 39%;
+      animation-delay: .7s, 2.8s;
+    }
+
+    .intro-scatter.in .pill {
+      animation-play-state: running;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      h1.hero-title,
+      .hero-badge-col,
+      .hero-side,
+      .hero-cta-row,
+      .portrait,
+      .portrait img,
+      .tile,
+      .intro .kicker,
+      .intro h2,
+      .pill,
+      .journey-track {
+        animation: none;
+        opacity: 1;
+      }
+
+      .journey-list {
+        height: auto;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .journey-group[aria-hidden="true"] {
+        display: none;
+      }
+
+      .showcase.in .tile {
+        transition: none;
+      }
+    }
+
+    /* ---------- PROCESS ---------- */
+    .process {
+      padding: 0px 32px 110px;
+      text-align: center;
+    }
+
+    .process .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .process h2 {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 70px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .step-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 34px 26px;
+      text-align: left;
+      width: 280px;
+      min-height: 190px;
+      box-shadow: 0 20px 40px -30px rgba(0, 0, 0, .3);
+    }
+
+    .step-card:nth-child(1) {
+      transform: rotate(-4deg) translateY(30px);
+    }
+
+    .step-card:nth-child(2) {
+      transform: translateY(-10px);
+      z-index: 2;
+      box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .35);
+    }
+
+    .step-card:nth-child(3) {
+      transform: rotate(4deg) translateY(30px);
+    }
+
+    .step-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 38px;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+
+    .step-card h3 {
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-family: 'Aeonik', 'Inter', sans-serif;
+    }
+
+    .step-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* ---------- HIGHLIGHTS (was testimonials) ---------- */
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+    }
+
+    .testimonial p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 22px;
+    }
+
+    .testimonial .who {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial .who .av {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #cdfb7a, #5b9e10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .testimonial .who b {
+      font-size: 13px;
+      display: block;
+    }
+
+    .testimonial .who span {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    .testimonials .testimonial:nth-child(2) {
+      text-align: right;
+    }
+
+    .testimonials .testimonial:nth-child(2) .who {
+      flex-direction: row-reverse;
+    }
+
+    .testimonials .testimonial:nth-child(2) .who div {
+      text-align: right;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .works {
+      padding: 0px 32px 120px;
+      text-align: center;
+    }
+
+    .works .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .works h2 {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 60px;
+    }
+
+    .works-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      text-align: left;
+    }
+
+    .work-thumb {
+      border-radius: 24px;
+      height: 280px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e9ede2, #cfd7c1);
+      position: relative;
+      border: none;
+    }
+
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .work-thumb iframe {
+      width: 166.66%;
+      height: 166.66%;
+      border: 0;
+      display: block;
+      background: #fff;
+      transform: scale(0.6);
+      transform-origin: top left;
+      pointer-events: auto;
+    }
+
+    .work-card.vertical .work-thumb {
+      height: 560px;
+      max-width: 300px;
+      margin: 0 auto 16px;
+      border-radius: 32px;
+      border: none;
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .3);
+    }
+
+    .work-card.vertical .work-thumb iframe {
+      width: 100%;
+      height: 100%;
+      transform: none;
+    }
+
+    .work-live-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(12, 15, 10, .85);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    .work-live-badge .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, .3);
+    }
+
+    .work-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .work-meta h4 {
+      font-size: 17px;
+      font-weight: 600;
+      font-family: 'Aeonik', 'Inter', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .work-meta p {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .work-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .work-tags span {
+      font-size: 11px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .work-card.placeholder .work-thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--line);
+      background: transparent;
+    }
+
+    .work-card.placeholder .work-thumb span {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .work-card.placeholder h4 {
+      color: var(--ink-soft);
+    }
+
+    /* ---------- JOURNEY ---------- */
+    .journey {
+      padding: 0px 32px 120px;
+      text-align: center;
+    }
+
+    .journey .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .journey h2 {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 50px;
+    }
+
+    .journey h2 .accent {
+      color: var(--lime-3);
+    }
+
+    .journey-list {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+      height: 560px;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    .journey-list:hover .journey-track {
+      animation-play-state: paused;
+    }
+
+    .journey-track {
+      display: flex;
+      flex-direction: column;
+      animation: journeyScroll 80s linear infinite;
+    }
+
+    .journey-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes journeyScroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    .journey-list .row {
+      display: grid;
+      grid-template-columns: 240px 1fr 170px;
+      gap: 14px;
+      padding: 20px 12px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      align-items: center;
+      transition: background .25s ease, padding .25s ease;
+    }
+
+    .journey-list .row:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .journey-list .row:hover {
+      background: var(--card);
+      padding-left: 22px;
+    }
+
+    .journey-list .row b {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .journey-list .row p {
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 14px;
+      display: block;
+      overflow: visible;
+    }
+
+    .journey-list .row.lines-3 p {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+    }
+
+    .journey-list .row span {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--lime-3);
+      text-align: left;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .journey-list .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-left: 8px;
+      color: var(--lime-3);
+      vertical-align: middle;
+    }
+
+    .journey-full-wrap {
+      max-width: 1000px;
+      margin: 18px auto 0;
+      text-align: right;
+    }
+
+    .journey-full-btn {
+      background: var(--dark);
+      color: var(--paper);
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .journey-full-btn:hover {
+      transform: translateY(-1px);
+      opacity: .9;
+    }
+
+    .journey-dialog {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 0;
+      margin: auto;
+      max-width: 920px;
+      width: calc(100vw - 48px);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .journey-dialog::backdrop {
+      background: rgba(12, 15, 10, .55);
+      backdrop-filter: blur(4px);
+    }
+
+    .journey-dialog-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .journey-dialog-head h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .journey-dialog-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .journey-dialog-close:hover {
+      background: var(--card);
+    }
+
+    .journey-table-wrap {
+      overflow-x: auto;
+      padding: 0 26px;
+    }
+
+    .journey-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .journey-table th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-soft);
+      padding: 16px 12px 10px 0;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .journey-table td {
+      padding: 14px 12px 14px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .journey-table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .journey-table td:nth-child(3) {
+      color: var(--ink-soft);
+    }
+
+    .journey-table td:last-child {
+      color: var(--ink-soft);
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    .journey-dialog-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 26px 22px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .journey-page-btn {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .journey-page-btn:disabled {
+      opacity: .4;
+      cursor: default;
+    }
+
+    .journey-page-btn:not(:disabled):hover {
+      background: var(--card);
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about {
+      padding: 0px 32px 120px;
+      text-align: center;
+    }
+
+    .about .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .about h2 {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 50px;
+    }
+
+    .about h2 .accent {
+      color: var(--lime-3);
+    }
+
+    .about-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      text-align: left;
+      align-items: center;
+    }
+
+    .about-photo {
+      border-radius: 0;
+      height: 460px;
+      overflow: visible;
+      background: none;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 26px;
+      max-width: 440px;
+    }
+
+    .about-table {
+      border-top: 1px solid var(--line);
+    }
+
+    .about-table .row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      align-items: center;
+    }
+
+    .about-table .row b {
+      font-weight: 600;
+    }
+
+    .about-table .row span {
+      color: var(--ink-soft);
+      text-align: right;
+    }
+
+    .about-table .row.placeholder b,
+    .about-table .row.placeholder span {
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    .about-foot {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .about-foot .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .about-foot .socials a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .about-foot .name b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .about-foot .name span {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- PASSION ---------- */
+    .passion {
+      padding: 0 0 120px;
+      text-align: center;
+    }
+
+    .passion-panel {
+      max-width: none;
+      margin: 0;
+      border-radius: 0;
+      padding: 64px 40px 54px;
+      background:
+        linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0) 55%, #FFFFFF 100%),
+        radial-gradient(ellipse 90% 60% at 50% 36%, rgba(255, 107, 107, .5) 0%, rgba(255, 142, 142, .32) 30%, rgba(255, 214, 214, .16) 55%, rgba(255, 245, 245, .5) 75%, #FFFFFF 100%);
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+    }
+
+    .passion .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: #E5484D;
+      margin-bottom: 12px;
+    }
+
+    .passion h2 {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 12px;
+    }
+
+    .passion h2 .accent {
+      color: #E5484D;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .passion-sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 40px;
+    }
+
+    .passion-rail {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 4px 18px;
+      text-align: left;
+      scrollbar-width: none;
+    }
+
+    .passion-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .p-card {
+      flex: 0 0 270px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, .85);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid #f0c9c9;
+      border-radius: 22px;
+      padding: 26px 22px;
+      transform: rotate(var(--tilt, 0deg));
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .p-card:hover {
+      transform: rotate(0deg) translateY(-5px);
+      border-color: #E5484D;
+      box-shadow: 0 20px 40px -20px rgba(229, 72, 77, .4);
+    }
+
+    .p-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .p-card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .passion-hint {
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hobby-title {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-soft);
+      margin: 34px 0 16px;
+    }
+
+    .hobby-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .hobby-row span {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background:
+        linear-gradient(rgba(255, 255, 255, .94), rgba(255, 255, 255, .94)) padding-box,
+        linear-gradient(135deg, #E5484D, #FF9E9E 40%, #FFC9C9 55%, #E5484D) border-box;
+      padding: 6px 20px;
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .hobby-row span:hover {
+      transform: translateY(-2px) rotate(-1deg);
+      box-shadow: 0 12px 24px -14px rgba(229, 72, 77, .55);
+      filter: saturate(1.2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .p-card {
+        transform: none;
+      }
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      text-align: center;
+      padding: 110px 32px;
+      border-radius: 40px;
+      max-width: 1180px;
+      margin: 0 auto 40px;
+      background: radial-gradient(120% 140% at 50% 0%, #ddffa0 0%, rgba(221, 255, 160, 0) 60%),
+        linear-gradient(180deg, var(--card), var(--paper));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 14px;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+    }
+
+    .cta p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      max-width: 440px;
+      margin: 0 auto 34px;
+      line-height: 1.6;
+    }
+
+    .cta .kicker {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .book-dialog {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 0;
+      margin: auto;
+      max-width: 960px;
+      width: calc(100vw - 48px);
+      height: min(680px, 88vh);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .book-dialog:not([open]) {
+      display: none;
+    }
+
+    .book-dialog::backdrop {
+      background: rgba(12, 15, 10, .55);
+      backdrop-filter: blur(4px);
+    }
+
+    .book-dialog-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      flex-shrink: 0;
+    }
+
+    .book-dialog-head h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .book-dialog-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .book-dialog-close:hover {
+      background: var(--card);
+    }
+
+    .book-dialog-foot {
+      padding: 12px 24px;
+      border-top: 1px solid var(--line);
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .book-dialog-foot a {
+      color: var(--ink);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .book-dialog .calendly-inline-widget {
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 40px 32px 0;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--ink-soft);
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    .footer-copy {
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .footer-big {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(60px, 13vw, 190px);
+      line-height: 1;
+      text-align: center;
+      padding: 2px 0 10px;
+      color: var(--ink);
+      opacity: .92;
+      letter-spacing: -.02em;
+      max-width: 100%;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    @media(max-width:860px) {
+      h1.hero-title {
+        font-size: 42px;
+      }
+
+      h1.hero-title .serif-line {
+        font-size: 18px;
+      }
+
+      .hero-side {
+        display: none;
+      }
+
+      .hero-portrait-row {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .hero-badge-col {
+        order: -1;
+        width: auto;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: 240px;
+      }
+
+      .tile.vertical {
+        grid-row: auto;
+      }
+
+      .passion-panel {
+        padding: 48px 22px 40px;
+      }
+
+      .passion h2 {
+        font-size: 28px;
+      }
+
+      .p-card {
+        flex-basis: 240px;
+      }
+
+      .intro-scatter {
+        padding: 70px 24px 60px;
+      }
+
+      .pill-field {
+        position: static;
+        inset: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        justify-items: center;
+        padding-top: 34px;
+        pointer-events: auto;
+      }
+
+      .pill {
+        position: static;
+        opacity: 1;
+        animation: pillFloat 6s ease-in-out infinite;
+      }
+
+      .pill.placeholder {
+        display: inline-flex;
+        background: transparent;
+        border-style: dashed;
+        color: var(--ink-soft);
+        box-shadow: none;
+      }
+
+      .pill.placeholder .ic {
+        background: transparent;
+        border: 1px dashed var(--ink-soft);
+        color: var(--ink-soft);
+      }
+
+      .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .step-card {
+        transform: none !important;
+        width: 90%;
+        max-width: 340px;
+      }
+
+      .testimonials,
+      .works-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials .testimonial:nth-child(2) {
+        text-align: left;
+      }
+
+      .testimonials .testimonial:nth-child(2) .who {
+        flex-direction: row;
+      }
+
+      .testimonials .testimonial:nth-child(2) .who div {
+        text-align: left;
+      }
+
+      .journey-list {
+        height: 320px;
+      }
+
+      .journey-list .row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .journey-list .row span {
+        text-align: left;
+        font-size: 18px;
+      }
+
+      .footer-big {
+        font-size: clamp(48px, 14vw, 110px);
+      }
+
+      .cta h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="logo">Durga</div>
+    <button class="nav-btn" aria-label="menu" aria-expanded="false"
+      aria-controls="nav-menu"><span></span><span></span></button>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1 class="hero-title">
+      Hi, I'm Durga
+      <span class="serif-line"> Aspiring AI Engineer &amp; SDE</span>
+    </h1>
+
+    <div class="hero-portrait-row">
+      <div class="hero-badge-col">
+        <div class="badge"><span class="signal"></span>Available for New Opportunities.</div>
+      </div>
+
+      <div class="portrait">
+        <img src="Untitled design.svg" alt="Sri Naga Durga Kamireddy">
+      </div>
+
+      <div class="hero-side left">
+        I like building things people can actually use — mostly AI stuff, learning something new with every project.
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <div class="quicklinks">
+        <a href="https://github.com/srinagadurga3455">GitHub</a>
+        <a href="https://linkedin.com/in/sri-naga-durga-kamireddy">LinkedIn</a>
+        <a href="https://leetcode.com/u/srinagadurga" id="leetcode-link" title="Easy 200 · Medium 105 · Hard 8">LeetCode · <b id="leet-count">313</b></a>
+      </div>
+      <a href="#contact"><button class="btn">Get in Touch <span class="arrow">→</span></button></a>
+    </div>
+  </section>
+
+  <br>
+
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <div class="marquee-group">
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="Python">Python</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+            alt="React">React</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+            alt="Node.js">Node.js</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+            alt="FastAPI">FastAPI</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+            alt="PostgreSQL">PostgreSQL</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg"
+            alt="TensorFlow">TensorFlow</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+            alt="MongoDB">MongoDB</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="">Python</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+            alt="">React</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+            alt="">Node.js</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+            alt="">FastAPI</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+            alt="">PostgreSQL</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg"
+            alt="">TensorFlow</span>
+        <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+            alt="">MongoDB</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="showcase">
+    <div class="kicker">/ Selected Work</div>
+    <h2>Things I've <span class="accent">built & shipped</span></h2>
+    <div class="showcase-panel">
+      <div class="showcase-grid">
+        <div class="tile vertical">
+          <iframe src="https://sos-ai-web.vercel.app/" title="SOS App live preview" loading="lazy"
+            referrerpolicy="no-referrer"></iframe>
+          <button class="tile-open" type="button" data-tag="2026" data-title="AI Voice-Activated SOS Safety App" data-desc="Emergency safety app with live GPS tracking, hands-free voice-triggered SOS activation, and instant calling and messaging alerts to emergency contacts when every second counts." data-link="https://sos-ai-web.vercel.app/" data-time="Mar 2026" data-tech="React Native, Node.js">Open ↗</button>
+        </div>
+        <div class="tile shrunk">
+
+          <iframe src="https://hostel-management-srkr.vercel.app/" title="Hostel Management Platform — live preview" loading="lazy"
+            referrerpolicy="no-referrer"></iframe>
+          <button class="tile-open" type="button" data-tag="Live" data-title="Hostel Management Platform" data-desc="Developed a hostel management platform to streamline hostel operations including room allocation, student records, outing requests, complaint management, attendance tracking, and food menu handling. Built to improve communication between students and hostel administration." data-link="https://hostel-management-srkr.vercel.app/" data-time="Aug 2026" data-tech="React, Vite">Open ↗</button>
+         </div>
+        <div class="tile shrunk">
+                    <iframe src="https://www.sqltown.com/" title="SQLTown — live preview" loading="lazy"
+            referrerpolicy="no-referrer"></iframe>
+          <button class="tile-open" type="button" data-tag="In progress" data-title="SQLTown" data-desc="Building SQLTown, a gamified SQL learning platform with interactive queries, achievements, city-building progression, and interview-style challenges. Designed to make learning SQL fun, engaging, and practical for real-world and placement preparation." data-link="https://www.sqltown.com/" data-time="Apr 2026" data-tech="React, FastAPI">Open ↗</button>
+  </div>
+        <div class="tile static-info shot">
+          <img src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fhealnest2026.infinityfree.me%2F?w=800" alt="HealNest preview" loading="lazy" onerror="this.remove()">
+          <b>HealNest</b>
+          <span>Youth mental wellness platform</span>
+          <button class="tile-open" type="button" data-tag="Live" data-title="HealNest" data-desc="Developed HealNest, a youth mental wellness platform with features like mood tracking, daily journaling, guided wellness programmes, self-assessments, and personalised insights. The goal is to create a safe and supportive space for young people to build healthier mental habits." data-link="https://healnest2026.infinityfree.me/" data-time="Jan 2026" data-tech="PHP, Bootstrap" data-nopreview="1">Open ↗</button>
+        </div>
+        <div class="tile shrunk">
+          <iframe src="https://urban-intelligence-platform-six.vercel.app/" title="Urban Intelligence Platform — live preview" loading="lazy"
+            referrerpolicy="no-referrer"></iframe>
+          <button class="tile-open" type="button" data-tag="1st Prize" data-title="Urban Intelligence Platform" data-desc="Developed an AI-powered urban intelligence platform during a CSI-organised hackathon, using public transport buses as mobile sensing units to detect potholes, damaged roads, waterlogging, and other road issues. Integrated AI detection, GPS data, and an admin dashboard for incident management. Won First Prize." data-link="https://urban-intelligence-platform-six.vercel.app/" data-time="Sep 2026" data-tech="React, Vite">Open ↗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <button class="drawer-close" id="drawer-close" type="button" aria-label="Close details">✕</button>
+    <div><span class="drawer-tag" id="drawer-tag"></span></div>
+    <h3 id="drawer-title"></h3>
+    <p id="drawer-desc"></p>
+    <div class="drawer-preview" id="drawer-preview-wrap">
+      <iframe id="drawer-preview" title="Project live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
+    <div class="drawer-meta">
+      <div class="meta-row"><span>Date</span><b id="drawer-date"></b></div>
+      <div class="meta-row"><span>Tech</span><div class="drawer-tech" id="drawer-tech"></div></div>
+    </div>
+    <a class="btn" id="drawer-link" href="#" target="_blank" rel="noopener">Open live <span class="arrow">↗</span></a>
+  </aside>
+
+  <div class="intro-scatter">
+    <section class="intro">
+      <div class="kicker">Hey!</div>
+      <h2>focus is on turning curiosity into <span class="accent">working software</span> — blending AI, clean backend
+        logic, and real-world problem solving</h2>
+    </section>
+
+    <div class="pill-field" id="skills">
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"></span> Python, Java, TypeScript</div>
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"></span> React &amp; React Native</div>
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="Machine learning"></span> Pandas, NumPy, TensorFlow</div>
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="Databases"></span> PostgreSQL &amp; MongoDB</div>
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Backend"></span> Node.js, Express, FastAPI</div>
+      <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Tools"></span> Git, Docker, Postman</div>
+      <div class="pill"><span class="ic">✨</span> GenAI, Agentic AI &amp; LLMs</div>
+      <div class="pill placeholder"><span class="ic">+</span> Add more skills here</div>
+    </div>
+  </div>
+
+  <section class="process">
+    <div class="kicker">/ How I Build</div>
+    <h2>My workflow</h2>
+
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Explore</h3>
+        <p>Turning ideas into clear product concepts through planning, user flows, wireframes, designs, and rapid prototypes before writing the code.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Build</h3>
+        <p>Turning concepts into working products — developing the frontend, backend, APIs, and core features while keeping the experience clean, functional, and scalable.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Ship</h3>
+        <p>Taking the product from working to usable — testing, refining, fixing real-world issues, and iterating through feedback until it's ready to ship.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="about">
+    <div class="kicker">/ Who I Am</div>
+    <h2>Building &amp; learning <span class="accent">since 2024</span></h2>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="durga kamireddy.svg" alt="Sri Naga Durga Kamireddy">
+      </div>
+
+      <div class="about-text">
+        <p>A curious and motivated developer passionate about product building, solving real-world problems, and
+          exploring AI and machine learning technologies through practical software development.</p>
+
+        <div class="about-table">
+          <div class="row"><b>Mobile App Developer Intern</b><span>PYNYX Private Limited
+              </span><span>Sep 2026 → Present</span></div>
+          <div class="row"><b>B.Tech, AI &amp; Data Science</b><span>SRKR Engineering College · CGPA
+              9.1</span><span>2024 → 2028</span></div>
+          <div class="row"><b>M.P.C (Class 12)</b><span>Tirumala Junior College · 98.3%</span><span>2022 → 2024</span>
+          </div>
+
+        </div>
+
+        <div class="about-foot">
+          <div class="socials">
+            <a href="https://github.com/srinagadurga3455" aria-label="GitHub">GH</a>
+            <a href="https://linkedin.com/in/sri-naga-durga-kamireddy" aria-label="LinkedIn">in</a>
+            <a href="https://leetcode.com/u/srinagadurga" aria-label="LeetCode">LC</a>
+          </div>
+          <div class="name"><b>Sri Naga Durga Kamireddy</b><span>B.Tech AI &amp; Data Science Student</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="passion">
+    <div class="passion-panel">
+      <div class="kicker">/ Skills & Passion</div>
+      <h2>What I love <span class="accent">& what I'm good at</span></h2>
+      <p class="passion-sub">A mix of deep interests and hands-on strengths — swipe through.</p>
+
+      <div class="passion-rail">
+            <div class="p-card" style="--tilt:2deg;">
+          <h3>Speaking & Hosting</h3>
+          <p>Orator Championship semi-finalist — anchored Balotsavam and hosted stages with confidence.</p>
+        </div>
+        <div class="p-card" style="--tilt:-1.5deg;">
+          <h3>Community Building</h3>
+          <p>Organising Skill Mela and Jaitra, volunteering at Vedic Vision 2K25 — bringing people and events together.</p>
+        </div>
+
+        <div class="p-card" style="--tilt:-1deg;">
+          <h3>Hackathons</h3>
+          <p>SIH internal selections twice, Udbhav AI SOS build, and a First Prize for the Urban Intelligence Platform.</p>
+        </div>
+<div class="p-card" style="--tilt:-2deg;">
+          <h3>AI</h3>
+          <p>Experimenting with LLMs, agents and RAG — and guiding others on AI tools as a Skill Mela resource person.</p>
+        </div>
+      </div>
+
+      <div class="hobby-title">Beyond the screen</div>
+      <div class="hobby-row">
+        <span>Crocheting</span>
+        <span>Drawing</span>
+        <span>Browsing internet</span>
+        <span>Singing</span>
+        <span>Dancing</span>
+        <span>Yoga</span>
+        <span>Meditation</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey">
+    <!-- <div class="kicker">/ Journey</div> -->
+    <h2 class="serif">Journey</h2>
+
+    <div class="journey-list">
+      <div class="journey-track">
+        <div class="journey-group">
+          <div class="row lines-3">
+            <div><b>TCS Drive Volunteer</b></div>
+            <p>Volunteered during a TCS recruitment drive, assisting with candidate registration, documentation, venue management, and coordination with the TCS team. Gained exposure to large-scale hiring processes and developed teamwork, communication, and organizational skills.</p>
+            <span>2024</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>YES+ Program</b></div>
+            <p>Completed the YES+ personal development program through the PAIE Cell, which focused on communication, leadership, confidence building, critical thinking, teamwork, and real-world skill development through workshops and hands-on activities.</p>
+            <span>2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Vedic Vision 2K25</b></div>
+            <p>Volunteered and participated in Vedic Vision 2K25, a national-level hackathon with nearly 500 participants. Supported event coordination, participant onboarding, scheduling, and on-ground operations, and also networked with students, mentors, and industry experts.</p>
+            <span>2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SIH Internal Hackathon – Jharkhand Tourism Platform</b></div>
+            <p>Selected in the Smart India Hackathon (SIH) internal hackathon, where our team developed a digital platform to promote Jharkhand's tourism by showcasing tourist places, itineraries, and local experiences using modern web technologies.</p>
+            <span>Sep 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SportConnect</b></div>
+            <p>Developed SportConnect, a platform that connects sports coaches and turf owners with players. Users can search for coaches, browse available turfs, book sessions, and manage schedules. Built to make sports access simpler and more organised for coaches and players.</p>
+            <span>Aug 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Balotsavam</b></div>
+            <p>Organised and anchored Balotsavam, a college programme for children, aimed at giving them a platform to showcase their talents. Handled event planning, participant coordination, stage hosting, and overall execution, making it a memorable experience for both children and students.</p>
+            <span>Dec 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>HealNest</b></div>
+            <p>Developed HealNest, a youth mental wellness platform with features like mood tracking, daily journaling, guided wellness programmes, self-assessments, and personalised insights. The goal is to create a safe and supportive space for young people to build healthier mental habits.</p>
+            <span>Jan 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Jaitra</b></div>
+            <p>Contributed to organising Jaitra, the annual college sports fest, including event planning, coordination with teams, managing schedules, and on-ground support for various sports events. Helped in creating an engaging and energetic experience for participants.</p>
+            <span>Jan 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Skill Mela</b></div>
+            <p>Organised a two-day Skill Mela, a skill development programme featuring workshops on AI tools, DSA, Photoshop, GitHub, and vibe coding, along with cultural activities. Also served as a resource person, explaining different technical domains and guiding students on learning paths and career opportunities.</p>
+            <span>Feb 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>S R K R Orator Championship</b></div>
+            <p>Reached the semi-finals of the SRKR Orator Championship, competing with talented speakers and developing my public speaking, analytical thinking, and presentation skills.</p>
+            <span>Mar 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Udbhav Hackathon — AI SOS</b></div>
+            <p>Participated in the Udbhav Hackathon organised by the Computer Society of India (CSI). Built an AI-powered voice-activated SOS application with live GPS tracking and instant alerts to emergency contacts, focusing on user safety and quick response in critical situations.</p>
+            <span>Mar 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SQLTown</b></div>
+            <p>Building SQLTown, a gamified SQL learning platform with interactive queries, achievements, city-building progression, and interview-style challenges. Designed to make learning SQL fun, engaging, and practical for real-world and placement preparation.</p>
+            <span>Apr 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>ML Forge</b></div>
+            <p>Built ML Forge, an all-in-one Python machine learning library that simplifies common ML workflows. It includes modules for data preprocessing, model training, evaluation, and visualization, making it a reusable and beginner-friendly toolkit for ML learners and developers.</p>
+            <span>May 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>DeepTech DSA Bootcamp</b></div>
+            <p>Completed a national-level DeepTech DSA bootcamp from May 1 to May 30, covering advanced data structures, algorithms, problem-solving techniques, and real-world applications. Gained hands-on practice through coding challenges, contests, and expert-led sessions.</p>
+            <span>May 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>AI Idea Pitching</b></div>
+            <p>Won Second Prize in an AI idea pitching competition by presenting a platform for nurseries to help them reach more customers, improve their business, and contribute to education and green initiatives. Received valuable feedback from industry experts and mentors.</p>
+            <span>Jul 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Hostel Management Platform</b></div>
+            <p>Developed a hostel management platform to streamline hostel operations including room allocation, student records, outing requests, complaint management, attendance tracking, and food menu handling. Built to improve communication between students and hostel administration.</p>
+            <span>Aug 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SIH Internal Hackathon – Urban Platform</b></div>
+            <p>Participated in the Smart India Hackathon (SIH) internal hackathon, where our team developed an AI-powered urban intelligence platform to detect road issues and support urban problem resolution. Gained experience in teamwork, problem solving, and rapid prototyping.</p>
+            <span>Sep 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Urban Intelligence Platform</b></div>
+            <p>Developed an AI-powered urban intelligence platform during a CSI-organised hackathon, using public transport buses as mobile sensing units to detect potholes, damaged roads, waterlogging, and other road issues. Integrated AI detection, GPS data, and an admin dashboard for incident management. Won First Prize.</p>
+            <span>Sep 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Mobile App Developer Intern</b></div>
+            <p>Working as a Mobile App Developer Intern at PYNYX Private Limited, contributing to production mobile applications, fixing real bugs, implementing new features, and learning how teams design, review, and release software in a professional environment.</p>
+            <span>Sep 2026 → Present</span>
+          </div>
+        </div>
+        <div class="journey-group" aria-hidden="true">
+          <div class="row lines-3">
+            <div><b>TCS Drive Volunteer</b></div>
+            <p>Volunteered during a TCS recruitment drive, assisting with candidate registration, documentation, venue management, and coordination with the TCS team. Gained exposure to large-scale hiring processes and developed teamwork, communication, and organizational skills.</p>
+            <span>2024</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>YES+ Program</b></div>
+            <p>Completed the YES+ personal development program through the PAIE Cell, which focused on communication, leadership, confidence building, critical thinking, teamwork, and real-world skill development through workshops and hands-on activities.</p>
+            <span>2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Vedic Vision 2K25</b></div>
+            <p>Volunteered and participated in Vedic Vision 2K25, a national-level hackathon with nearly 500 participants. Supported event coordination, participant onboarding, scheduling, and on-ground operations, and also networked with students, mentors, and industry experts.</p>
+            <span>2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SIH Internal Hackathon – Jharkhand Tourism Platform</b></div>
+            <p>Selected in the Smart India Hackathon (SIH) internal hackathon, where our team developed a digital platform to promote Jharkhand's tourism by showcasing tourist places, itineraries, and local experiences using modern web technologies.</p>
+            <span>Sep 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SportConnect</b></div>
+            <p>Developed SportConnect, a platform that connects sports coaches and turf owners with players. Users can search for coaches, browse available turfs, book sessions, and manage schedules. Built to make sports access simpler and more organised for coaches and players.</p>
+            <span>Aug 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Balotsavam</b></div>
+            <p>Organised and anchored Balotsavam, a college programme for children, aimed at giving them a platform to showcase their talents. Handled event planning, participant coordination, stage hosting, and overall execution, making it a memorable experience for both children and students.</p>
+            <span>Dec 2025</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>HealNest</b></div>
+            <p>Developed HealNest, a youth mental wellness platform with features like mood tracking, daily journaling, guided wellness programmes, self-assessments, and personalised insights. The goal is to create a safe and supportive space for young people to build healthier mental habits.</p>
+            <span>Jan 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Jaitra</b></div>
+            <p>Contributed to organising Jaitra, the annual college sports fest, including event planning, coordination with teams, managing schedules, and on-ground support for various sports events. Helped in creating an engaging and energetic experience for participants.</p>
+            <span>Jan 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Skill Mela</b></div>
+            <p>Organised a two-day Skill Mela, a skill development programme featuring workshops on AI tools, DSA, Photoshop, GitHub, and vibe coding, along with cultural activities. Also served as a resource person, explaining different technical domains and guiding students on learning paths and career opportunities.</p>
+            <span>Feb 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>S R K R Orator Championship</b></div>
+            <p>Reached the semi-finals of the SRKR Orator Championship, competing with talented speakers and developing my public speaking, analytical thinking, and presentation skills.</p>
+            <span>Mar 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Udbhav Hackathon — AI SOS</b></div>
+            <p>Participated in the Udbhav Hackathon organised by the Computer Society of India (CSI). Built an AI-powered voice-activated SOS application with live GPS tracking and instant alerts to emergency contacts, focusing on user safety and quick response in critical situations.</p>
+            <span>Mar 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SQLTown</b></div>
+            <p>Building SQLTown, a gamified SQL learning platform with interactive queries, achievements, city-building progression, and interview-style challenges. Designed to make learning SQL fun, engaging, and practical for real-world and placement preparation.</p>
+            <span>Apr 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>ML Forge</b></div>
+            <p>Built ML Forge, an all-in-one Python machine learning library that simplifies common ML workflows. It includes modules for data preprocessing, model training, evaluation, and visualization, making it a reusable and beginner-friendly toolkit for ML learners and developers.</p>
+            <span>May 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>DeepTech DSA Bootcamp</b></div>
+            <p>Completed a national-level DeepTech DSA bootcamp from May 1 to May 30, covering advanced data structures, algorithms, problem-solving techniques, and real-world applications. Gained hands-on practice through coding challenges, contests, and expert-led sessions.</p>
+            <span>May 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>AI Idea Pitching</b></div>
+            <p>Won Second Prize in an AI idea pitching competition by presenting a platform for nurseries to help them reach more customers, improve their business, and contribute to education and green initiatives. Received valuable feedback from industry experts and mentors.</p>
+            <span>Jul 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Hostel Management Platform</b></div>
+            <p>Developed a hostel management platform to streamline hostel operations including room allocation, student records, outing requests, complaint management, attendance tracking, and food menu handling. Built to improve communication between students and hostel administration.</p>
+            <span>Aug 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>SIH Internal Hackathon – Urban Platform</b></div>
+            <p>Participated in the Smart India Hackathon (SIH) internal hackathon, where our team developed an AI-powered urban intelligence platform to detect road issues and support urban problem resolution. Gained experience in teamwork, problem solving, and rapid prototyping.</p>
+            <span>Sep 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Urban Intelligence Platform</b></div>
+            <p>Developed an AI-powered urban intelligence platform during a CSI-organised hackathon, using public transport buses as mobile sensing units to detect potholes, damaged roads, waterlogging, and other road issues. Integrated AI detection, GPS data, and an admin dashboard for incident management. Won First Prize.</p>
+            <span>Sep 2026</span>
+          </div>
+          <div class="row lines-3">
+            <div><b>Mobile App Developer Intern</b></div>
+            <p>Working as a Mobile App Developer Intern at PYNYX Private Limited, contributing to production mobile applications, fixing real bugs, implementing new features, and learning how teams design, review, and release software in a professional environment.</p>
+            <span>Sep 2026 → Present</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-full-wrap">
+      <button class="journey-full-btn" id="journey-full-btn" type="button">Full view <span aria-hidden="true">↗</span></button>
+    </div>
+
+    <dialog class="journey-dialog" id="journey-dialog" aria-labelledby="journey-dialog-title">
+      <div class="journey-dialog-head">
+        <h3 id="journey-dialog-title">Projects & moments</h3>
+        <button class="journey-dialog-close" id="journey-dialog-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="journey-table-wrap">
+        <table class="journey-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="journey-tbody"></tbody>
+        </table>
+      </div>
+      <div class="journey-dialog-foot">
+        <button class="journey-page-btn" id="journey-prev" type="button">← Prev</button>
+        <span id="journey-page-info">Page 1 of 1</span>
+        <button class="journey-page-btn" id="journey-next" type="button">Next →</button>
+      </div>
+    </dialog>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="kicker">/ Contact</div>
+    <h2 class="serif">Say hello.</h2>
+    <p>Internships, projects, collaborations — pick a time and let's talk.</p>
+    <button class="btn" type="button" id="book-open">Book a Call <span class="arrow">→</span></button>
+
+    <dialog class="book-dialog" id="book-dialog" aria-labelledby="book-dialog-title">
+      <div class="book-dialog-head">
+        <h3 id="book-dialog-title">Book a call</h3>
+        <button class="book-dialog-close" id="book-dialog-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sreesha3455?hide_gdpr_banner=1" style="min-width:320px;height:100%;"></div>
+      <div class="book-dialog-foot">
+        Trouble loading? <a href="https://calendly.com/sreesha3455" target="_blank" rel="noopener">Open booking page ↗</a>
+      </div>
+    </dialog>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Sri Naga Durga Kamireddy. Built with curiosity.</div>
+    </div>
+    <div class="footer-big">Durga Kamireddy</div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-btn');
+      var menu = document.getElementById('nav-menu');
+      if (!btn || !menu) return;
+      function close() { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+      function toggle() {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      btn.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function (e) { if (!menu.contains(e.target)) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+      menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') close(); });
+    })();
+    (function () {
+      var scatter = document.querySelector('.intro-scatter');
+      if (!scatter || !('IntersectionObserver' in window)) { if (scatter) scatter.classList.add('in'); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { scatter.classList.add('in'); io.disconnect(); } });
+      }, { threshold: .25 });
+      io.observe(scatter);
+    })();
+    (function () {
+      var showcase = document.querySelector('.showcase');
+      if (!showcase || !('IntersectionObserver' in window)) { if (showcase) showcase.classList.add('in'); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { showcase.classList.add('in'); io.disconnect(); } });
+      }, { threshold: .15 });
+      io.observe(showcase);
+    })();
+    (function () {
+      var header = document.querySelector('header.nav');
+      if (!header) return;
+      function onScroll() {
+        if (window.scrollY > 60) { header.classList.add('reveal'); }
+        else { header.classList.remove('reveal'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+    (function () {
+      var DATA = [
+        { title: 'TCS Drive Volunteer', desc: "Volunteered during a TCS recruitment drive, assisting with candidate registration, documentation, venue management, and coordination with the TCS team. Gained exposure to large-scale hiring processes and developed teamwork, communication, and organizational skills.", time: '2024' },
+        { title: 'YES+ Program', desc: "Completed the YES+ personal development program through the PAIE Cell, which focused on communication, leadership, confidence building, critical thinking, teamwork, and real-world skill development through workshops and hands-on activities.", time: '2025' },
+        { title: 'Vedic Vision 2K25', desc: "Volunteered and participated in Vedic Vision 2K25, a national-level hackathon with nearly 500 participants. Supported event coordination, participant onboarding, scheduling, and on-ground operations, and also networked with students, mentors, and industry experts.", time: '2025' },
+        { title: 'SIH Internal Hackathon – Jharkhand Tourism Platform', desc: "Selected in the Smart India Hackathon (SIH) internal hackathon, where our team developed a digital platform to promote Jharkhand's tourism by showcasing tourist places, itineraries, and local experiences using modern web technologies.", time: 'Sep 2025' },
+        { title: 'SportConnect', desc: "Developed SportConnect, a platform that connects sports coaches and turf owners with players. Users can search for coaches, browse available turfs, book sessions, and manage schedules. Built to make sports access simpler and more organised for coaches and players.", time: 'Aug 2025' },
+        { title: 'Balotsavam', desc: "Organised and anchored Balotsavam, a college programme for children, aimed at giving them a platform to showcase their talents. Handled event planning, participant coordination, stage hosting, and overall execution, making it a memorable experience for both children and students.", time: 'Dec 2025' },
+        { title: 'HealNest', desc: "Developed HealNest, a youth mental wellness platform with features like mood tracking, daily journaling, guided wellness programmes, self-assessments, and personalised insights. The goal is to create a safe and supportive space for young people to build healthier mental habits.", time: 'Jan 2026' },
+        { title: 'Jaitra', desc: "Contributed to organising Jaitra, the annual college sports fest, including event planning, coordination with teams, managing schedules, and on-ground support for various sports events. Helped in creating an engaging and energetic experience for participants.", time: 'Jan 2026' },
+        { title: 'Skill Mela', desc: "Organised a two-day Skill Mela, a skill development programme featuring workshops on AI tools, DSA, Photoshop, GitHub, and vibe coding, along with cultural activities. Also served as a resource person, explaining different technical domains and guiding students on learning paths and career opportunities.", time: 'Feb 2026' },
+        { title: 'S R K R Orator Championship', desc: "Reached the semi-finals of the SRKR Orator Championship, competing with talented speakers and developing my public speaking, analytical thinking, and presentation skills.", time: 'Mar 2026' },
+        { title: 'Udbhav Hackathon — AI SOS', desc: "Participated in the Udbhav Hackathon organised by the Computer Society of India (CSI). Built an AI-powered voice-activated SOS application with live GPS tracking and instant alerts to emergency contacts, focusing on user safety and quick response in critical situations.", time: 'Mar 2026' },
+        { title: 'SQLTown', desc: "Building SQLTown, a gamified SQL learning platform with interactive queries, achievements, city-building progression, and interview-style challenges. Designed to make learning SQL fun, engaging, and practical for real-world and placement preparation.", time: 'Apr 2026' },
+        { title: 'ML Forge', desc: "Built ML Forge, an all-in-one Python machine learning library that simplifies common ML workflows. It includes modules for data preprocessing, model training, evaluation, and visualization, making it a reusable and beginner-friendly toolkit for ML learners and developers.", time: 'May 2026' },
+        { title: 'DeepTech DSA Bootcamp', desc: "Completed a national-level DeepTech DSA bootcamp from May 1 to May 30, covering advanced data structures, algorithms, problem-solving techniques, and real-world applications. Gained hands-on practice through coding challenges, contests, and expert-led sessions.", time: 'May 2026' },
+        { title: 'AI Idea Pitching', desc: "Won Second Prize in an AI idea pitching competition by presenting a platform for nurseries to help them reach more customers, improve their business, and contribute to education and green initiatives. Received valuable feedback from industry experts and mentors.", time: 'Jul 2026' },
+        { title: 'Hostel Management Platform', desc: "Developed a hostel management platform to streamline hostel operations including room allocation, student records, outing requests, complaint management, attendance tracking, and food menu handling. Built to improve communication between students and hostel administration.", time: 'Aug 2026' },
+        { title: 'SIH Internal Hackathon – Urban Platform', desc: "Participated in the Smart India Hackathon (SIH) internal hackathon, where our team developed an AI-powered urban intelligence platform to detect road issues and support urban problem resolution. Gained experience in teamwork, problem solving, and rapid prototyping.", time: 'Sep 2026' },
+        { title: 'Urban Intelligence Platform', desc: "Developed an AI-powered urban intelligence platform during a CSI-organised hackathon, using public transport buses as mobile sensing units to detect potholes, damaged roads, waterlogging, and other road issues. Integrated AI detection, GPS data, and an admin dashboard for incident management. Won First Prize.", time: 'Sep 2026' },
+        { title: 'Mobile App Developer Intern', desc: "Working as a Mobile App Developer Intern at PYNYX Private Limited, contributing to production mobile applications, fixing real bugs, implementing new features, and learning how teams design, review, and release software in a professional environment.", time: 'Sep 2026 → Present' }
+      ];
+      var PAGE_SIZE = 10;
+      var page = 0;
+      var dialog = document.getElementById('journey-dialog');
+      var openBtn = document.getElementById('journey-full-btn');
+      var closeBtn = document.getElementById('journey-dialog-close');
+      var tbody = document.getElementById('journey-tbody');
+      var prevBtn = document.getElementById('journey-prev');
+      var nextBtn = document.getElementById('journey-next');
+      var info = document.getElementById('journey-page-info');
+      if (!dialog || !openBtn || !tbody) return;
+      function esc(s) {
+        return String(s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+      function totalPages() { return Math.max(1, Math.ceil(DATA.length / PAGE_SIZE)); }
+      function render() {
+        var pages = totalPages();
+        if (page > pages - 1) page = pages - 1;
+        if (page < 0) page = 0;
+        var start = page * PAGE_SIZE;
+        var rows = DATA.slice(start, start + PAGE_SIZE);
+        var html = '';
+        for (var i = 0; i < rows.length; i++) {
+          html += '<tr><td>' + esc(rows[i].title) + '</td><td>' + esc(rows[i].desc) + '</td><td>' + esc(rows[i].time) + '</td></tr>';
+        }
+        tbody.innerHTML = html;
+        info.textContent = 'Page ' + (page + 1) + ' of ' + pages;
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page >= pages - 1;
+      }
+      prevBtn.addEventListener('click', function () { page--; render(); });
+      nextBtn.addEventListener('click', function () { page++; render(); });
+      openBtn.addEventListener('click', function () {
+        page = 0;
+        render();
+        if (typeof dialog.showModal === 'function') { dialog.showModal(); }
+        else { dialog.setAttribute('open', ''); }
+      });
+      closeBtn.addEventListener('click', function () {
+        if (typeof dialog.close === 'function') { dialog.close(); }
+        else { dialog.removeAttribute('open'); }
+      });
+      dialog.addEventListener('click', function (e) {
+        var r = dialog.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
+          if (typeof dialog.close === 'function') { dialog.close(); }
+          else { dialog.removeAttribute('open'); }
+        }
+      });
+    })();
+    (function () {
+      var el = document.getElementById('leetcode-link');
+      var count = document.getElementById('leet-count');
+      if (!el || !count) return;
+      function paint(v) {
+        count.textContent = v.n;
+        var tip = [];
+        if (v.e != null) tip.push('Easy ' + v.e);
+        if (v.m != null) tip.push('Medium ' + v.m);
+        if (v.h != null) tip.push('Hard ' + v.h);
+        if (tip.length) el.title = tip.join(' · ');
+        el.hidden = false;
+      }
+      function num(v) {
+        var n = parseInt(v, 10);
+        return isNaN(n) ? null : n;
+      }
+      try {
+        var cached = JSON.parse(localStorage.getItem('leet-stat') || 'null');
+        if (cached && cached.n != null) paint(cached);
+      } catch (e) { /* ignore */ }
+      var urls = [
+        'https://leetcode-api-faisalshohag.vercel.app/srinagadurga',
+        'https://alfa-leetcode-api.onrender.com/srinagadurga/solved',
+        'https://leetcode-stats-api.herokuapp.com/srinagadurga'
+      ];
+      (async function () {
+        for (var i = 0; i < urls.length; i++) {
+          try {
+            var r = await fetch(urls[i]);
+            if (!r.ok) continue;
+            var d = await r.json();
+            var v = {
+              n: num(d.solvedProblem != null ? d.solvedProblem : d.totalSolved),
+              e: num(d.easySolved), m: num(d.mediumSolved), h: num(d.hardSolved)
+            };
+            if (v.n == null) continue;
+            try { localStorage.setItem('leet-stat', JSON.stringify(v)); } catch (e) { /* ignore */ }
+            paint(v);
+            return;
+          } catch (e) { /* try next */ }
+        }
+      })();
+    })();
+  </script>
+  <script>
+    (function () {
+      var dialog = document.getElementById('book-dialog');
+      var openBtn = document.getElementById('book-open');
+      var closeBtn = document.getElementById('book-dialog-close');
+      if (!dialog || !openBtn) return;
+      function close() {
+        if (typeof dialog.close === 'function') { dialog.close(); }
+        else { dialog.removeAttribute('open'); }
+      }
+      openBtn.addEventListener('click', function () {
+        if (typeof dialog.showModal === 'function') { dialog.showModal(); }
+        else { dialog.setAttribute('open', ''); }
+      });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      dialog.addEventListener('click', function (e) {
+        var r = dialog.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) close();
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var drawer = document.getElementById('drawer');
+      var backdrop = document.getElementById('drawer-backdrop');
+      var closeBtn = document.getElementById('drawer-close');
+      var tag = document.getElementById('drawer-tag');
+      var title = document.getElementById('drawer-title');
+      var desc = document.getElementById('drawer-desc');
+      var link = document.getElementById('drawer-link');
+      var previewWrap = document.getElementById('drawer-preview-wrap');
+      var preview = document.getElementById('drawer-preview');
+      var date = document.getElementById('drawer-date');
+      var tech = document.getElementById('drawer-tech');
+      if (!drawer || !backdrop) return;
+      function esc(s) {
+        return String(s).replace(/[<>&"]/g, function (c) {
+          return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c];
+        });
+      }
+      function close() {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.style.overflow = '';
+        if (preview) preview.removeAttribute('src');
+      }
+      document.querySelectorAll('.tile-open').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          tag.textContent = btn.dataset.tag || '';
+          title.textContent = btn.dataset.title || '';
+          desc.textContent = btn.dataset.desc || '';
+          date.textContent = btn.dataset.time || '—';
+          var chips = (btn.dataset.tech || '').split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+          tech.innerHTML = chips.length
+            ? chips.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('')
+            : '<span>—</span>';
+          if (btn.dataset.link) {
+            link.href = btn.dataset.link;
+            link.style.display = '';
+            if (btn.dataset.nopreview) {
+              if (previewWrap) previewWrap.style.display = 'none';
+              if (preview) preview.removeAttribute('src');
+            } else {
+              if (previewWrap) previewWrap.style.display = '';
+              if (preview) preview.src = btn.dataset.link;
+            }
+          } else {
+            link.style.display = 'none';
+            if (previewWrap) previewWrap.style.display = 'none';
+          }
+          drawer.classList.add('open');
+          backdrop.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          if (closeBtn) closeBtn.focus();
+        });
+      });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      backdrop.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) close();
+      });
+    })();
+  </script>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+</body>
+
+</html>
