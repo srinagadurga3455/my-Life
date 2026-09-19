@@ -522,6 +522,10 @@
       border: 2px dotted var(--line);
     }
 
+    .showcase-hint {
+      display: none;
+    }
+
     .showcase-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -978,6 +982,10 @@
       display: none;
     }
 
+    .skills-hint {
+      display: none;
+    }
+
     /* shattered diagonals leaning toward middle text */
     .pill:nth-child(1) {
       --tilt: -8deg;
@@ -1136,6 +1144,10 @@
       font-size: 13px;
       color: var(--ink-soft);
       line-height: 1.5;
+    }
+
+    .steps-hint {
+      display: none;
     }
 
     /* ---------- HIGHLIGHTS (was testimonials) ---------- */
@@ -1775,6 +1787,7 @@
     .passion-rail {
       display: flex;
       gap: 16px;
+      justify-content: safe center;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding: 10px 4px 18px;
@@ -2055,9 +2068,33 @@
       }
 
       .showcase-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
-        grid-auto-rows: 240px;
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+      }
+
+      .showcase-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .showcase-grid .tile {
+        flex: 0 0 46vw;
+        max-width: 260px;
+        min-height: 220px;
+        scroll-snap-align: start;
+      }
+
+      .showcase-hint {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-top: 12px;
       }
 
       .tile.vertical {
@@ -2083,18 +2120,39 @@
       .pill-field {
         position: static;
         inset: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
-        justify-items: center;
-        padding-top: 34px;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 26px 4px 14px;
+        margin: 0 -24px;
+        padding-left: 24px;
+        padding-right: 24px;
         pointer-events: auto;
+        scrollbar-width: none;
+      }
+
+      .pill-field::-webkit-scrollbar {
+        display: none;
       }
 
       .pill {
         position: static;
         opacity: 1;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        font-size: 12px;
         animation: pillFloat 6s ease-in-out infinite;
+      }
+
+      .skills-hint {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-top: 4px;
       }
 
       .pill.placeholder {
@@ -2112,15 +2170,54 @@
       }
 
       .steps {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 12px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        overflow-anchor: none;
+        padding: 6px 24px 16px;
+        margin: 0 -32px;
+        scrollbar-width: none;
+      }
+
+      .steps::-webkit-scrollbar {
+        display: none;
       }
 
       .step-card {
         transform: none !important;
-        width: 90%;
-        max-width: 340px;
+        flex: 0 0 70vw;
+        max-width: 300px;
+        min-height: 0;
+        padding: 26px 20px;
+        border-radius: 20px;
+      }
+
+      .step-num {
+        font-size: 30px;
+        margin-bottom: 12px;
+      }
+
+      .step-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .step-card p {
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      .steps-hint {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-top: 6px;
       }
 
       .testimonials,
@@ -2191,7 +2288,7 @@
       </div>
 
       <div class="portrait">
-        <img src="hero.svg" alt="Sri Naga Durga Kamireddy">
+        <img src="hero.webp" alt="Sri Naga Durga Kamireddy">
       </div>
 
       <div class="hero-side left">
@@ -2281,6 +2378,7 @@
           <button class="tile-open" type="button" data-tag="1st Prize" data-title="Urban Intelligence Platform" data-desc="Developed an AI-powered urban intelligence platform during a CSI-organised hackathon, using public transport buses as mobile sensing units to detect potholes, damaged roads, waterlogging, and other road issues. Integrated AI detection, GPS data, and an admin dashboard for incident management. Won First Prize." data-link="https://urban-intelligence-platform-six.vercel.app/" data-time="Sep 2026" data-tech="React, Next.js, FastAPI, YOLO, PyTorch, PostgreSQL">Open ↗</button>
         </div>
       </div>
+      <div class="showcase-hint">← scroll to see more →</div>
     </div>
   </section>
 
@@ -2315,8 +2413,8 @@
       <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Backend"></span> Node.js, Express, FastAPI</div>
       <div class="pill"><span class="ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Tools"></span> Git, Docker, Postman</div>
       <div class="pill"><span class="ic">✨</span> GenAI, Agentic AI &amp; LLMs</div>
-      <div class="pill placeholder"><span class="ic">+</span> Add more skills here</div>
     </div>
+    <div class="skills-hint">← scroll to see more →</div>
   </div>
 
   <section class="process">
@@ -2340,6 +2438,7 @@
         <p>Taking the product from working to usable — testing, refining, fixing real-world issues, and iterating through feedback until it's ready to ship.</p>
       </div>
     </div>
+    <div class="steps-hint">← scroll to see more →</div>
   </section>
 
 
@@ -2350,7 +2449,7 @@
 
     <div class="about-grid">
       <div class="about-photo">
-        <img src="id.svg" alt="Sri Naga Durga Kamireddy">
+        <img src="id.webp" alt="Sri Naga Durga Kamireddy">
       </div>
 
       <div class="about-text">
@@ -2939,6 +3038,53 @@
         console.log('%c© Sri Naga Durga Kamireddy — this portfolio is personal work, please ask before reusing content.',
           'font-size:12px;color:#5b9e10;');
       } catch (e) { /* ignore */ }
+    })();
+  </script>
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var rail = document.querySelector('.showcase-grid');
+      if (!rail) return;
+      var mq = window.matchMedia('(max-width: 860px)');
+      var paused = false;
+      var inView = false;
+      var resumeTimer = null;
+      function hold() {
+        paused = true;
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function () { paused = false; }, 5000);
+      }
+      rail.addEventListener('touchstart', hold, { passive: true });
+      rail.addEventListener('pointerdown', hold);
+      rail.addEventListener('wheel', hold, { passive: true });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) hold();
+      });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+        }, { threshold: 0.2 });
+        io.observe(rail);
+      } else {
+        inView = true;
+      }
+      setInterval(function () {
+        if (!mq.matches || paused || document.hidden || !inView) return;
+        var tile = rail.querySelector('.tile');
+        var step = tile ? tile.offsetWidth + 12 : rail.clientWidth / 2;
+        if (rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 12) {
+          rail.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          rail.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      }, 3200);
+    })();
+    (function () {
+      var steps = document.querySelector('.steps');
+      if (!steps) return;
+      function reset() { steps.scrollLeft = 0; }
+      if (document.readyState === 'complete') { reset(); }
+      else { window.addEventListener('load', reset); }
     })();
   </script>
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
